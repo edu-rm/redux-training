@@ -13,6 +13,10 @@ export default createGlobalStyle`
   body{
     -webkit-font-smoothing: antialiased;
   }
+  body, html{
+    height: 100%;
+    background: #00008B;
+  }
 
   button{
     cursor: pointer;

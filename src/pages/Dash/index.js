@@ -4,6 +4,6 @@ import React from 'react';
 
 export default function Dash() {
   return (
-    <h1>Heloo wosdkgpfs</h1>
+    <h1>dash</h1>
   );
 }
