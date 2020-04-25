@@ -10,6 +10,11 @@ export const Container = styled.div`
 
   }
 
+  #alert-success {
+    display: flex;
+    justify-content: space-between;
+  }
+
 
   #button-form {
     margin-top: 20px;

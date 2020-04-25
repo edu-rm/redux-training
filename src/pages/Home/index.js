@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { Alert, Button   } from 'react-bootstrap';
 import { Container } from './styles';
 
 function Home({ dispatch }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [cpf, setCpf] = useState('');
+  const [show, setShow] = useState(false);
 
 
   function handleAddUser(){
@@ -18,6 +20,12 @@ function Home({ dispatch }) {
         cpf
       },
     });
+
+    setShow(true);
+    setEmail('');
+    setName('');
+    setCpf('');
+
   }
 
   return (
@@ -61,6 +69,17 @@ function Home({ dispatch }) {
                 </button>
               </div>
             </form>
+              <Alert show={show} variant="success" className="col-md-6">
+                  <Alert.Heading>Ótimo!</Alert.Heading>
+                  <div id="alert-success" >
+                    <p>
+                      Dado cadatrado com sucesso!
+                    </p>
+                    <Button onClick={() => setShow(false)} variant="outline-success">
+                      Fechar
+                    </Button>
+                  </div>
+              </Alert>
           </div>
         </div>
       </div>
