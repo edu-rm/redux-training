@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
-
+import { connect } from 'react-redux';
 
 import { Container } from './styles';
 
-export default function Home() {
+function Home({ dispatch }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [cpf, setCpf] = useState('');
 
+
+  function handleAddUser(){
+    dispatch({
+      type: 'ADD_USER',
+      user: {
+        name,
+        email,
+        cpf
+      },
+    });
+  }
 
   return (
     <Container>
@@ -41,7 +52,13 @@ export default function Home() {
                   value={cpf}
                   onChange={e => setCpf(e.target.value)}
                 />
-                <button type="button" id="button-form" class="btn btn-danger">Salvar dados</button>
+                <button
+                  type="button"
+                  onClick={() => handleAddUser()}
+                  id="button-form" class="btn btn-danger"
+                >
+                  Salvar dados
+                </button>
               </div>
             </form>
           </div>
@@ -50,3 +67,5 @@ export default function Home() {
     </Container>
   );
 }
+
+export default connect()(Home);
