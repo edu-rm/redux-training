@@ -9,10 +9,10 @@ export default function Header() {
   return (
     <Container>
       <nav id="navegation" className="navbar navbar-expand-lg d-flex justify-content-between">
-        <a id="logo" href="#" className="navbar-brand">
+        <Link id="logo" to="/" className="navbar-brand">
           <img src={ReduxLogo} alt="logo"/>
           Redux
-        </a>
+        </Link>
         <ul id="bar" className="nav justify-content-end">
           <li className="nav-item active">
             <Link className="nav-link" to="/dash">Dashboard</Link>
