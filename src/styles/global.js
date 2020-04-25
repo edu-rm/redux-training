@@ -15,7 +15,7 @@ export default createGlobalStyle`
   }
   body, html{
     height: 100%;
-    background: #00008B;
+    background: #7749BD;
   }
 
   button{

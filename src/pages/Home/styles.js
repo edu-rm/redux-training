@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   #info-container{
     padding-top: 30px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.3);
     font-size: 20px;
     background: white;
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import TableComponent from '../../components/TableComponent';
 
 import { Container } from './styles';
 
@@ -14,7 +13,7 @@ export default function Home() {
     <Container>
       <div id="info-container" className="container">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-12">
             <h2>Preencha suas informações</h2>
             <form id="form">
               <div className="form-group">
@@ -35,13 +34,16 @@ export default function Home() {
                   onChange={(e) => setName(e.target.value)}
                 />
                 <label htmlFor="cpf">CPF</label>
-                <input type="text" className="form-control" id="cpf"/>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cpf"
+                  value={cpf}
+                  onChange={e => setCpf(e.target.value)}
+                />
                 <button type="button" id="button-form" class="btn btn-danger">Salvar dados</button>
               </div>
             </form>
-          </div>
-          <div className="col-md-6">
-            <TableComponent/>
           </div>
         </div>
       </div>
