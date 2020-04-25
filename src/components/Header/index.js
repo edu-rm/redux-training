@@ -17,10 +17,12 @@ export default function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
-          <Nav id="mr-auto" className="nav">
+          <h3 id="name" className="text-center">Nome</h3>
+          <Nav className="nav">
             <Nav.Link href="/dash">Dashboard</Nav.Link>
             <Nav.Link href="/">Home</Nav.Link>
           </Nav>
+
         </Navbar.Collapse>
 
       </Navbar>

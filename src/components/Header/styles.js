@@ -15,13 +15,15 @@ export const Container = styled.div`
     }
   }
 
+  #name {
+    margin: 0 auto;
+  }
+
   #logo{
     display: flex;
     align-items: center;
     color: #7749BD;
   }
-
-
 
   img{
     width: 50px;
