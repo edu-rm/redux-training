@@ -45,7 +45,9 @@ function TableComponent({ users }) {
   );
 }
 
-export default connect(state => ({
+const mapStateToProps = state => ({
   users: state.user
-}))(TableComponent);
+});
+
+export default connect(mapStateToProps)(TableComponent);
 
