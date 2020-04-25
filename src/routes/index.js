@@ -1,8 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Dash from '../pages/Dash';
 import Home from '../pages/Home';
+
+import Route from './Route';
 
 
 export default function Routes(){
