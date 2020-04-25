@@ -1,10 +1,15 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
 import { Container } from './styles';
 
 import { AiFillDelete } from 'react-icons/ai';
 
-export default function TableComponent() {
+function TableComponent({ users }) {
+  function handleDelete(user){
+    console.log(user);
+  }
   return (
     <Container>
       <h2>Lista</h2>
@@ -19,20 +24,28 @@ export default function TableComponent() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>dksfkds</td>
-              <td>fjgdfjg@gmail.com</td>
-              <td>23423423423</td>
-              <td>
-                <button type="button">
-                  <AiFillDelete size={24}/>
-                </button>
-              </td>
-            </tr>
+            {users.map(user => {
+              return (
+                <tr>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.cpf}</td>
+                  <td>
+                    <button onClick={() => handleDelete(user)} type="button">
+                      <AiFillDelete size={24}/>
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
     </Container>
   );
 }
+
+export default connect(state => ({
+  users: state.user
+}))(TableComponent);
 

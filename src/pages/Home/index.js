@@ -25,7 +25,7 @@ function Home({ dispatch }) {
       <div id="info-container" className="container">
         <div className="row">
           <div className="col-md-12">
-            <h2>Preencha suas informações</h2>
+            <h2 className="text-center">Preencha suas informações</h2>
             <form id="form">
               <div className="form-group">
                 <label htmlFor="email">Email</label>
