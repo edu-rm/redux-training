@@ -17,6 +17,12 @@ export const Container = styled.div`
 
   #name {
     margin: 0 auto;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 16px;
+    }
   }
 
   #logo{

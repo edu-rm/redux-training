@@ -5,9 +5,9 @@ import { Alert, Button   } from 'react-bootstrap';
 import { Container } from './styles';
 
 function Home({ dispatch }) {
-  const [email, setEmail] = useState('');
+  const [peso, setPeso] = useState('');
   const [name, setName] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [altura, setAltura] = useState('');
   const [show, setShow] = useState(false);
 
 
@@ -16,15 +16,15 @@ function Home({ dispatch }) {
       type: 'ADD_USER',
       user: {
         name,
-        email,
-        cpf
+        peso,
+        altura
       },
     });
 
     setShow(true);
-    setEmail('');
+    setPeso('');
     setName('');
-    setCpf('');
+    setAltura('');
 
   }
 
@@ -36,14 +36,7 @@ function Home({ dispatch }) {
             <h2 className="text-center">Preencha suas informações</h2>
             <form id="form">
               <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="text"
-                  id="email"
-                  className="form-control"
-                  value={email}
-                  onChange={(e)=> setEmail(e.target.value)}
-                />
+
                 <label htmlFor="name">Nome</label>
                 <input
                   type="text"
@@ -52,13 +45,21 @@ function Home({ dispatch }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <label htmlFor="cpf">CPF</label>
+                <label htmlFor="peso">Peso</label>
+                <input
+                  type="text"
+                  id="peso"
+                  className="form-control"
+                  value={peso}
+                  onChange={(e)=> setPeso(e.target.value)}
+                />
+                <label htmlFor="altura">Altura</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="cpf"
-                  value={cpf}
-                  onChange={e => setCpf(e.target.value)}
+                  id="altura"
+                  value={altura}
+                  onChange={e => setAltura(e.target.value)}
                 />
                 <button
                   type="button"

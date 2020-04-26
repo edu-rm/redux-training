@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import { Container } from './styles';
 import ReduxLogo from '../../images/redux_logo.png';
 
-function Header({ userSize }) {
+function Header({ userSize, users }) {
+  console.log(users);
+  console.log(userSize);
   return (
     <Container>
       <Navbar collapseOnSelect expand="lg" id="navegation" className="d-flex justify-content-between">
@@ -17,7 +19,10 @@ function Header({ userSize }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
-          <h3 id="name" className="text-center">{userSize}</h3>
+          <h3 id="name" className="text-center">
+            Última pessoa cadastrada:
+            <span>{userSize !== 0 ? users[userSize-1].name : ''}</span>
+          </h3>
           <Nav className="nav">
             <Nav.Link as={Link} to="/dash">Dashboard</Nav.Link>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
@@ -31,6 +36,9 @@ function Header({ userSize }) {
   );
 }
 
-export default connect(state => ({
+const mapStateToProps = state => ({
+  users: state.user,
   userSize: state.user.length,
-}))(Header);
+});
+
+export default connect(mapStateToProps)(Header);

@@ -6,8 +6,12 @@ export const Container = styled.div`
       text-align: center;
       margin : 20px 20px;
     }
-    button {
+    #delete-button {
       background: white;
     }
+    td#actions-cell {
+      display: flex;
+      align-items: center;
 
+    }
 `;
