@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Container } from './styles';
 import { Button, Modal } from 'react-bootstrap';
 import { AiFillDelete } from 'react-icons/ai';
 
-function TableComponent({ users, dispatch }) {
+import * as UserActions from '../../store/modules/user/actions';
+
+
+function TableComponent({ users, removeUser }) {
   const [showModal, setShowModal] = useState(false);
   const [userModal, setUserModal] = useState('');
-  function handleDelete(name){
-
-    dispatch({
-      type: 'DELETE_USER',
-      name,
-    });
-  }
-
+  console.log(UserActions);
   function handleShowModal(user){
     setShowModal(true);
     setUserModal(user);
@@ -47,7 +44,10 @@ function TableComponent({ users, dispatch }) {
                   <td>{user.peso}</td>
                   <td>{user.altura}</td>
                   <td id="actions-cell">
-                    <button id="delete-button" onClick={() => handleDelete(user.name)} type="button">
+                    <button id="delete-button"
+                      onClick={() => removeUser(user.name)}
+                      type="button"
+                    >
                       <AiFillDelete size={24}/>
                     </button>
                     <Button onClick={()=> handleShowModal(user)} variant="info">Info</Button>
@@ -80,5 +80,8 @@ const mapStateToProps = state => ({
   }))
 });
 
-export default connect(mapStateToProps)(TableComponent);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(UserActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableComponent);
 

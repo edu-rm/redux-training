@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { bindActionCreators } from 'redux';
+
 import { Alert, Button   } from 'react-bootstrap';
 import { Container } from './styles';
 
-function Home({ dispatch }) {
+import * as UserActions from '../../store/modules/user/actions';
+
+function Home({ addUser }) {
   const [peso, setPeso] = useState('');
   const [name, setName] = useState('');
   const [altura, setAltura] = useState('');
@@ -12,14 +16,12 @@ function Home({ dispatch }) {
 
 
   function handleAddUser(){
-    dispatch({
-      type: 'ADD_USER',
-      user: {
-        name,
-        peso,
-        altura
-      },
-    });
+    const user = {
+      name,
+      peso,
+      altura
+    }
+    addUser(user);
 
     setShow(true);
     setPeso('');
@@ -87,5 +89,7 @@ function Home({ dispatch }) {
     </Container>
   );
 }
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(UserActions, dispatch);
 
-export default connect()(Home);
+export default connect(null, mapDispatchToProps)(Home);
