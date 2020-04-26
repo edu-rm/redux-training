@@ -6,11 +6,15 @@ import { Container } from './styles';
 import { Button, Modal } from 'react-bootstrap';
 import { AiFillDelete } from 'react-icons/ai';
 
-function TableComponent({ users }) {
+function TableComponent({ users, dispatch }) {
   const [showModal, setShowModal] = useState(false);
   const [userModal, setUserModal] = useState('');
-  function handleDelete(user){
-    console.log(user);
+  function handleDelete(name){
+
+    dispatch({
+      type: 'DELETE_USER',
+      name,
+    });
   }
 
   function handleShowModal(user){
@@ -38,12 +42,12 @@ function TableComponent({ users }) {
           <tbody>
             {users.map(user => {
               return (
-                <tr>
+                <tr key={user.name}>
                   <td>{user.name}</td>
                   <td>{user.peso}</td>
                   <td>{user.altura}</td>
                   <td id="actions-cell">
-                    <button id="delete-button" onClick={() => handleDelete(user)} type="button">
+                    <button id="delete-button" onClick={() => handleDelete(user.name)} type="button">
                       <AiFillDelete size={24}/>
                     </button>
                     <Button onClick={()=> handleShowModal(user)} variant="info">Info</Button>

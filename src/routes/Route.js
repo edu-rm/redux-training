@@ -17,5 +17,5 @@ export default function routes({ component: Component, ...rest }) {
 }
 
 routes.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+  component: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
 }

@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import { Container } from './styles';
 import ReduxLogo from '../../images/redux_logo.png';
 
 function Header({ userSize, users }) {
-  console.log(users);
-  console.log(userSize);
   return (
     <Container>
       <Navbar collapseOnSelect expand="lg" id="navegation" className="d-flex justify-content-between">

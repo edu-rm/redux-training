@@ -2,7 +2,6 @@ import React from 'react';
 
 import TableComponent from '../../components/TableComponent';
 import { Container } from './styles';
-import { Button } from 'react-bootstrap';
 
 export default function Dash() {
   return (
